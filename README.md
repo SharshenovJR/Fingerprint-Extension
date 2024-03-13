@@ -1,1 +1,1 @@
-# fingerPrintExtension
+# FingerPrint Extension for Google Chrome
