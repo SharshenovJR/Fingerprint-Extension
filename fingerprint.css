@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.extension__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    background-color: #f0f0f0; /* Цвет фона плагина*/
+    padding: 8px;
+    gap: 8px;
+}
+
+.extension__container button {
+    width: 100%;
+    padding: 8px;
+    background-color: rgb(27, 170, 117); /* Цвет фона кнопок */
+    color: white; /* Цвет текста кнопок */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.extension__container button:hover {
+    background-color: rgb(31, 160, 113); /* Цвет фона при наведении на кнопку */
+}
+
+#finger_logo {
+    width: 84px;
+    height: 84px;
+    border-radius: 100%;
+}
+
+.pulse {
+    animation: pulse-animation 1.6s infinite;
+  }
+  
+  @keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 11px rgba(27, 170, 117, 0.1);
+    }
+  }
