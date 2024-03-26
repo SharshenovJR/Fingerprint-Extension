@@ -1,6 +1,6 @@
 const captureBtn = document.getElementById("captureBtn");
 const deviceBtn = document.getElementById("deviceBtn");
-const BASE_URL = 'http://localhost:8081'
+const BASE_URL = 'http://localhost:8282'
 const captureUrl = '/v1/scanner/capture';
 const deviceUrl = '/v1/scanner/devices'
 
