@@ -1,11 +1,15 @@
 const captureBtn = document.getElementById("captureBtn");
 const deviceBtn = document.getElementById("deviceBtn");
 const BASE_URL = 'http://localhost:8282'
-const captureUrl = '/v1/scanner/capture';
-const deviceUrl = '/v1/scanner/devices'
+const captureUrl = '/v2/scanner/capture';
+const deviceUrl = '/v2/scanner/devices'
 
 captureBtn.addEventListener("click", () => {   
-  sendRequest(BASE_URL + captureUrl)
+  const requestBody = {
+    formatFmd: "ANSI_378_2004",
+    formatFid: "ANSI_381_2004"
+  };
+  sendCaptureRequest(BASE_URL + captureUrl, requestBody)
       .then(data => {
           console.log(data);
       });
@@ -33,4 +37,27 @@ async function sendRequest(url) {
 
     console.log("Result:", result);
     return result;
+}
+
+async function sendCaptureRequest(url, body) {  
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const result = await response.json();
+    console.log("Result:", result);
+    return result;
+
+  } catch (error) {
+    console.error('There was a problem with your fetch operation:', error);
+  }
 }
